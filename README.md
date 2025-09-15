@@ -1,98 +1,122 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Financas" />
 
-  &#xa0;
+# 💰 Gerenciador de Contas Mensais
 
-  <!-- <a href="https://financas.netlify.app">Demo</a> -->
-</div>
+Este é um programa simples em Python para gerenciar contas mensais, permitindo cadastrar, listar, excluir e exportar os dados para um arquivo Excel.
 
-<h1 align="center">Financas</h1>
+Ele organiza as contas por mês e permite registrar contas parceladas automaticamente nos meses seguintes.
 
-<p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8">
+## 🚀 Funcionalidades
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8">
+- Adicionar conta
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8">
+ - Registrar uma conta em um determinado mês.
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8">
+- Caso seja parcelada, o sistema divide o valor pelas parcelas e adiciona automaticamente nos meses seguintes.
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8" /> -->
+- Listar contas
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8" /> -->
+- Exibir todas as contas registradas em um mês específico.
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/financas?color=56BEB8" /> -->
-</p>
+- Mostrar o total do mês.
 
-<!-- Status -->
+- Deletar conta
 
-<!-- <h4 align="center"> 
-	🚧  Financas 🚀 Under construction...  🚧
-</h4> 
+- Remover uma conta de um mês selecionado pelo nome.
 
-<hr> -->
+- Gerar Excel
 
-<p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
-</p>
+- Exporta as contas mensais para um arquivo chamado contas_mensais.xlsx usando o Pandas.
 
-<br>
+- Sair
 
-## :dart: About ##
+- Encerra o programa.
 
-Describe your project
 
-## :sparkles: Features ##
+## 📋 Estrutura do Programa
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+O sistema utiliza uma lista de dicionários representando os meses do ano:
 
-## :rocket: Technologies ##
+``` bash 
+meses = [
+    {"nome": "Janeiro", "contas": []},
+    {"nome": "Fevereiro", "contas": []},
+    {"nome": "Março", "contas": []},
+    ...
+    {"nome": "Dezembro", "contas": []},
+]
+````
 
-The following tools were used in this project:
+Cada conta adicionada é armazenada assim:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+```
+{"nome": "Conta de Luz", "valor": 120.50}
 
-## :white_check_mark: Requirements ##
-
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
-
-## :checkered_flag: Starting ##
-
-```bash
-# Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/financas
-
-# Access
-$ cd financas
-
-# Install dependencies
-$ yarn
-
-# Run the project
-$ yarn start
-
-# The server will initialize in the <http://localhost:3000>
 ```
 
-## :memo: License ##
+## 🖥️ Menu Principal
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+```
+--------------------------------------------------------
+Menu:
+1. Adicionar conta
+2. Listar contas
+3. Deletar conta
+4. Sair
+5. Gerar excel
+--------------------------------------------------------
+
+```
+
+## 📦 Dependências
+
+O projeto utiliza Python 3 e a biblioteca Pandas.
+
+Instale as dependências com:
+
+```
+pip install pandas openpyxl
+
+```
+(O openpyxl é necessário para salvar em Excel).
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+## 📊 Saída em Excel
 
-&#xa0;
+Ao escolher a opção 5, o programa gera um arquivo chamado:
 
-<a href="#top">Back to top</a>
+```
+contas_mensais.xlsx
+
+```
+
+Cada coluna representa um mês, e as linhas contêm os valores das contas registradas.
+
+Exemplo:
+
+Janeiro	Fevereiro	Março
+120.50	200.00	150.00
+80.00	100.00
+
+
+## ▶️ Como Executar
+
+Salve o código em um arquivo, por exemplo: gerenciador_contas.py
+
+No terminal, execute:
+
+```
+python gerenciador_contas.py
+
+```
+
+Navegue pelo menu para gerenciar suas contas.
+
+## 📌 Melhorias Futuras
+
+Adicionar persistência dos dados em arquivo JSON ou banco de dados.
+
+Criar relatórios automáticos de gastos mensais.
+
+Implementar interface gráfica com Tkinter ou PyQt.
+
+🔹 Projeto simples, mas útil para organização financeira pessoal.
